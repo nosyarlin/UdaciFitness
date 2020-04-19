@@ -83,6 +83,7 @@ class AddEntry extends React.Component {
     }));
 
     // Navigate to home
+    this.toHome();
 
     // Save to db
     submitEntry({ key, entry });
@@ -97,9 +98,14 @@ class AddEntry extends React.Component {
       [key]: getDailyReminderValue(),
     }));
     // Route to home
+    this.toHome();
 
     // Update db
     removeEntry(key);
+  }
+
+  toHome = () => {
+    this.props.navigation.goBack();
   }
 
   render() {
