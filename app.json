@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "UdaciFitness2",
-    "slug": "UdaciFitness2",
+    "sdkVersion": "20.0.0",
+    "name": "UdaciFitness",
+    "description": "The best triathlon tracker ever",
+    "slug": "UdaciFitness",
     "platforms": [
       "ios",
       "android",
@@ -9,7 +11,10 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "https://tylermcginnis.com/udacifitness-512.png",
+    "notification": {
+      "icon": "https://tylermcginnis.com/udacifitness-45.png"
+    },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -22,7 +27,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "org.udacifitness.exp",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "org.udacifitness.exp",
     }
   }
 }
