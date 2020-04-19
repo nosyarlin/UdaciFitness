@@ -15,6 +15,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { purple, white } from './utils/colors';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
+import { setLocalNotification } from './utils/helpers';
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -110,15 +111,21 @@ function NavigationStacks() {
   );
 }
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Provider store={createStore(reducer)}>
-        <View style={{flex: 1}}>
-          <UdaciStatusBar backgroundColor={purple} barStyle='light-content'/>
-          <NavigationStacks/>
-        </View>
-      </Provider>
-    </NavigationContainer>
-  );
+export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+
+  render() {
+    return (
+      <NavigationContainer>
+        <Provider store={createStore(reducer)}>
+          <View style={{flex: 1}}>
+            <UdaciStatusBar backgroundColor={purple} barStyle='light-content'/>
+            <NavigationStacks/>
+          </View>
+        </Provider>
+      </NavigationContainer>
+    );
+  }
 }
